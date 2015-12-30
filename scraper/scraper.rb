@@ -1,29 +1,48 @@
 require 'nokogiri'
 require 'watir-webdriver'
 require 'csv'
+load './stores.rb'
+load './products.rb'
 
-browser = Watir::Browser.new
+b = Watir::Browser.new
 output = Hash.new
 t = Time.new
-zipsandurls = {
-  "20001" => "http://www.homedepot.com/p/Philips-65W-Equivalent-Soft-White-BR40-Dimmable-with-Warm-Glow-Light-Effect-LED-Light-Bulb-E-457002/206357794",
-  "21215" => "http://m.homedepot.com/p/Philips-65W-Equivalent-Soft-White-BR30-Dimmable-LED-Warm-Glow-Effect-Light-Bulb-E-457069/206341869"
-              }
+stores = S #stores.rb array
+products = P #products.rb array
 
-zipsandurls.each do |x, y|
-  browser.goto "#{y}"
-        z = "#{browser.html}"
+stores.each do |x|
+  b.goto "https://www.google.com/search?lsf=seller:8740,store:2221886705553283364&tbm=shop&q=Philips+Lightbulbs+SlimStyle+40W+Equivalent+Soft+White&sa=X&ved=0ahUKEwi5r8H664LKAhVQxWMKHZE5CeAQljAIEQ&biw=772&bih=724"
+  change_store = b.link :text => 'Change store'
+  change_store.exists?
+  change_store.click
+  store_text = b.text_field :class => '_pWb jfk-textinput'
+  store_text.exists?
+  store_text.set "#{x}"
+  find_stores = b.input(:class => 'jfk-button jfk-button-standard')
+  find_stores.exists?
+  find_stores.click
+  sleep 1
+  click_stores = b.link(:class => '_Muc jfk-button jfk-button-standard')
+  click_stores.exists?
+  click_stores.click
+  sleep 1
+  products.each do |y|
+  product_text = b.text_field :class => '_fGf'
+  product_text.exists?
+  product_text.set "#{y}"
+  product_btn = b.button :id => '_dGf'
+  product_btn.exists?
+  product_btn.click
+        z = "#{b.html}"
   nokogiri_object = Nokogiri::HTML(z)
-  prices = nokogiri_object.xpath("//div/span[@class='bold jumbo pip-price']")
-  if prices == ""
-    prices = "No Value Found"
-  end
-  output.merge!(x=>prices.to_s.delete("^$0-9."))
+  prices = nokogiri_object.xpath("//div[@class='shop-result-group _G2d']/div[@class='product-results']/descendant::div[1]/*[1]/div/div/div/div/span[@class='_q4c']")
+  output.merge!("#{x} #{y}" => prices.to_s.gsub("</b></span>","").gsub('<span class="_q4c"><b>',""))
+end
 end
 
 puts output
 CSV.open("#{t}.csv", "wb") {|csv| output.to_a.each {|elem| csv << elem} }
 
 at_exit do
-  browser.close
+  b.close
 end
