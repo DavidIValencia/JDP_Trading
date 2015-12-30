@@ -41,7 +41,7 @@ end
 end
 
 puts output
-CSV.open("#{t}.csv", "wb") {|csv| output.to_a.each {|elem| csv << elem} }
+CSV.open("../../../Dropbox/JDP_Trading/#{t}.csv", "wb") {|csv| output.to_a.each {|elem| csv << elem} }
 
 at_exit do
   b.close
