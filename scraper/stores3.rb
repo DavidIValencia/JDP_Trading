@@ -1,0 +1,23 @@
+S = [
+  "1621 N Olden Avenue, Ewing",
+  "399-443 Springfield Ave, Newark",
+  "400 N Highland Ave, Pittsburgh",
+  "9971 Mountain View Dr, West Mifflin",
+  "100 South Grener Rd, Columbus",
+  "1680 Stringtown Road, Grove City",
+  "100 Cross Terrace Blvd, Charleston",
+  "3051 West Radio Drive, Florence",
+  "2031 Walnut Street, Cary",
+  "650 Ponce De Leon, Atlanta",
+  "855 Lane Ave South, Jacksonville",
+  "6325 I-55 North, Jackson",
+  "1627 Poplar Avenue, Memphis",
+  "12300 I-10 Service Rd, New Orleans",
+  "1100 S Claiborne Avenue, New Orleans",
+  "6900 Pines Road, Shreveport",
+  "2225 N Post Road, Indianapolis",
+  "9320 Corporation Dr, Indianapolis",
+  "18700 Meyers Road, Detroit",
+  "3300 Carpenter Rd, Ypsilanti",
+  "W8141 Highway Us 2, Iron Mountain"
+  ]

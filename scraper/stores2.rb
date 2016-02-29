@@ -1,0 +1,23 @@
+S = [
+  "2539 Castor Avenue PA",
+  "1350 Macarthur PA",
+  "Dickson City PA",
+  "615 Arsenal St MA",
+  "115 Putnam Blvd Glastonbury, CT 06033",
+  "80 Buckland Hills Dr Manchester",
+  "Chicopee MA",
+  "179 Dagget Drive West Springfield",
+  "350 Russell Street Hadley",
+  "759 Harvest Ln, Williston",
+  "245 Riverside St, Portland",
+  "154 Topsham Fair Mall Rd, Topsham",
+  "346 Middle Country Rd, Coram",
+  "555 Hubbard Ave-Unit 21, Pittsfield",
+  "65 Independence Dr, Hyannis",
+  "387 Charles St, Providence",
+  "350 Barnum Ave Cutoff, Stratford",
+  "2905 E Market Street, York",
+  "51 N Mccain Drive, Frederick",
+  "3301 E West Highway, Hyattsville",
+  "4700 Cherry Hill Rd, College Park"
+    ]
